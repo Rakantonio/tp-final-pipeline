@@ -19,7 +19,7 @@ pipeline {
     stages {
 	stage('Init Terraform directory') {
 	    steps {
-		sh 'terraform init'
+		sh 'terraform init -backend-config=backend.tfvars'
 	    }
 	}
 	stage('Plan terraform code') {
@@ -30,6 +30,11 @@ pipeline {
 	stage('Apply terraform code') {
 	    steps {
 		sh 'terraform apply -auto-approve'
+	    }
+	}
+        stage('Output terraform code') {
+	    steps {
+		sh 'terraform output'
 	    }
 	}
     }
