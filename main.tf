@@ -40,8 +40,8 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_security_group" "security_group_jenkins_antonio" {
-  name = "security_group_jenkins_antonio"
+resource "aws_security_group" "securit_group" {
+  name = "isntance_terraform_antonio"
 
   ingress {
     description = "SSH from Instance"
@@ -50,12 +50,6 @@ resource "aws_security_group" "security_group_jenkins_antonio" {
     protocol = "tcp"
   }
   
-  ingress {
-    description = "Jenkins from Instance"
-    from_port = 8080
-    to_port = 8080
-    protocol = "tcp"
-  }
 
   ingress {
     description = "Web Server from Instance"
@@ -69,9 +63,5 @@ resource "aws_security_group" "security_group_jenkins_antonio" {
     to_port = 0
     protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "security_group_jenkins_antonio"
   }
 }
