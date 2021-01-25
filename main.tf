@@ -40,8 +40,8 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_security_group" "securit_group" {
-  name = "isntance_terraform_antonio"
+resource "aws_security_group" "security_group" {
+  name = "instance_terraform_antonio"
 
   ingress {
     description = "SSH from Instance"
