@@ -41,7 +41,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "security_group" {
-  name = "instance_terraform_antonio"
+  name = var.security_instance_name
 
   ingress {
     description = "SSH from Instance"
@@ -63,5 +63,8 @@ resource "aws_security_group" "security_group" {
     to_port = 0
     protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name = var.security_instance_name
   }
 }

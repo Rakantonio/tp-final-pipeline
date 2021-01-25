@@ -33,4 +33,8 @@ variable "create_instance" {
   default = true
 }
 
+variable "security_instance_name" {
+  type = string
+  default = "instance_terraform_antonio"
+}
 
